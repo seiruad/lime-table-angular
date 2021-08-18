@@ -1,27 +1,35 @@
-# About
+# About :wave:
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
 
-## Development server
+## :eyes: available scripts
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In the project directory, you can run:<br/>
+<!-- ## Development server -->
 
-## Code scaffolding
+### `ng serve`
+runs a dev server. Navigate to [http://localhost:4200](http://localhost:4200/) . The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+<!-- ## Code scaffolding -->
+### `ng generate component xyz`
+generates a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<!-- ## Build -->
 
-## Running unit tests
+### `ng build`
+builds the project. The build artifacts will be stored in the `dist/` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<!-- ## Running unit tests -->
 
-## Running end-to-end tests
+### `ng test`
+executes the unit tests via [Karma](https://karma-runner.github.io).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<!-- ## Running end-to-end tests -->
 
-## Further help
+### `ng e2e`
+executes the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## :eyes: learn more
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
