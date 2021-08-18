@@ -1,1 +1,8 @@
-<p>filter works!</p>
+<div *ngFor='let group of optionGroups'
+  class="filter"
+>
+<div class="filter_group">{{group.name}}</div>
+  <div *ngFor='let option of group.options' 
+    class="filter_group"
+  ><span class="param">{{option.value}} : {{option.count}}</span></div>
+</div>

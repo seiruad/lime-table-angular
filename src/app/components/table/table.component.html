@@ -1,26 +1,36 @@
 
 
 
-<div *ngFor='let g of groups'
-  class="filter"
->
-<div class="filter_group">{{g.name}}</div>
-  <div *ngFor='let param of g.params' 
-    class="filter_group"
-  ><span class="param">{{param.value}} : {{param.count}}</span></div>
-</div>
+<app-filter [optionGroups]="optionGroups" ></app-filter>
 
 <h2>Row oriented table</h2>
+<div class="Rtable Rtable--4cols"
+>
+  <div *ngFor='let col of columns' 
+    class="Rtable-cell">
+  <button
+    (click)='sort(col.name)'
+    >{{columnSortSettings[col.name] === 'none' ? 
+    'NONE' : (columnSortSettings[col.name] === 'ASC' ? 'ASC' : 'DESC')}}</button><h3>{{col.publicName}}</h3>
+  </div>
+ 
+
+  <!-- <div class="Rtable-cell"><button (click)="sort('name')">NON</button><h3>Имя</h3></div>
+  <div class="Rtable-cell"><button>NON</button><h3>Возраст</h3></div>
+  <div class="Rtable-cell"><button>NON</button><h3>Пол</h3></div>
+  <div class="Rtable-cell"><button>NON</button><h3>Департамент</h3></div> -->
+  <!-- <div class="Rtable-cell">{{row.address.city}} | {{row.address.street}}</div> -->
+</div>
+
+
 <div *ngFor='let row of table'
   class="Rtable Rtable--4cols"
 >
-  <div class="Rtable-cell"><h3>{{row.name}}</h3></div>
+  <div class="Rtable-cell">{{row.name}}</div>
   <div class="Rtable-cell">{{row.age}}</div>
   <div class="Rtable-cell">{{row.gender}}</div>
   <div class="Rtable-cell"><strong>{{row.department}}</strong></div>
   <!-- <div class="Rtable-cell">{{row.address.city}} | {{row.address.street}}</div> -->
-
-
 </div>
 
 <div *ngIf="table.length === 0">Таблица не загружена - проблемы с сервером или с клентом ^_^</div>

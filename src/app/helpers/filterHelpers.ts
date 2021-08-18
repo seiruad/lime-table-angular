@@ -56,10 +56,10 @@ export const makeGroups = (table: any[]): any[] => {
   }]
 
   for (const req of request) {
-    const params = countUniqueProperties(table, req.property)
+    const options = countUniqueProperties(table, req.property)
     groups.push({
       name: req.name,
-      params
+      options
     })
   }
 

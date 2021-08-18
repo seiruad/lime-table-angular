@@ -11,32 +11,50 @@ import { TableService } from 'src/app/services/table.service';
 })
 export class TableComponent implements OnInit {
   table: Table[] = []
-  groups: any = []
+  filteredTable: Table[] = []
+  optionGroups: any = []
 
-  constructor(private tableService: TableService) { 
-    
-    // this.groups = [{
-    //   name: 'Пол',
-    //   params: [{
-    //     value: 'female',
-    //     count: 1
-    //   }, {
-    //     value: 'male',
-    //     count: 2
-    //   }]
 
-    // }]
-  }
+  columns: any = [{
+    name: 'name',
+    publicName: 'Имя'
+  }, {
+    name: 'age',
+    publicName: 'Возраст'
+  }, {
+    name: 'gender',
+    publicName: 'Пол'
+  }, {
+    name: 'department',
+    publicName: 'Отдел'
+  }]
+
+  columnSortSettings: any = {name: 'none', age: 'ASC', gender: 'DESC', department: 'none'}
+  
+
+  constructor(private tableService: TableService) { }
 
   ngOnInit(): void {
     this.getTable()
-    this.groups = makeGroups(this.table)
-    // console.log({group: this.groups})
-    // console.log({groupParams: this.groups[0].params})
+    this.optionGroups = makeGroups(this.table)
   }
 
   getTable(): void {
     this.tableService.getTable()
       .subscribe(table => this.table = table)
+  }
+
+  sort(name: string): void {
+    if (this.columnSortSettings[name] === 'none') {
+      //  sort ('ASC')
+      this.columnSortSettings[name] = 'ASC'
+    } else if (this.columnSortSettings[name] === 'DESC') {
+      //  sort ('ASC')
+      this.columnSortSettings[name] = 'ASC'
+    } else {
+      //  sort ('DCS')
+      this.columnSortSettings[name] = 'DESC'
+    }
+
   }
 }

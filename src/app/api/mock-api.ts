@@ -30,6 +30,16 @@ export const TABLE: Table[] = [{
   address: {
     city: 'Moscow',
     street: 'sjwww'
-  }
-}
+    }
+  }, {
+    id: '573f358c9ecd6d19c0198a02',
+    name: 'Lana',
+    age: 19,
+    gender: 'female',
+    department: 'Hr',
+    address: {
+      city: 'New-York',
+      street: 'Division Avenue 473'
+      }
+    }
 ]
