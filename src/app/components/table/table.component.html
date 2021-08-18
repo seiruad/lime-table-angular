@@ -1,19 +1,7 @@
-
-
-
-<div *ngFor='let g of groups'
-  class="filter"
->
-<div class="filter_group">{{g.name}}</div>
-  <div *ngFor='let param of g.params' 
-    class="filter_group"
-  ><span class="param">{{param.value}} : {{param.count}}</span></div>
-</div>
-
 <h2>Row oriented table</h2>
 <div *ngFor='let row of table'
-  class="Rtable Rtable--4cols"
->
+  class="Rtable Rtable--4cols">
+
   <div class="Rtable-cell"><h3>{{row.name}}</h3></div>
   <div class="Rtable-cell">{{row.age}}</div>
   <div class="Rtable-cell">{{row.gender}}</div>
@@ -22,5 +10,3 @@
 
 
 </div>
-
-<div *ngIf="table.length === 0">Таблица не загружена - проблемы с сервером или с клентом ^_^</div>

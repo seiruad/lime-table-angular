@@ -6,7 +6,7 @@ export const TABLE: Table[] = [{
   name: 'Lilly',
   age: 25,
   gender: 'female',
-  department: 'Frontend',
+  department: '"Frontend"',
   address: {
     city: 'Moscow',
     street: 'sjs'
@@ -16,7 +16,7 @@ export const TABLE: Table[] = [{
   name: 'Sergei',
   age: 22,
   gender: 'male',
-  department: 'Frontend',
+  department: '"Frontend"',
   address: {
     city: 'Novosibirsk',
     street: 'sjaa'
@@ -26,7 +26,7 @@ export const TABLE: Table[] = [{
   name: 'John',
   age: 28,
   gender: 'male',
-  department: 'Backend',
+  department: '"Backend"',
   address: {
     city: 'Moscow',
     street: 'sjwww'
