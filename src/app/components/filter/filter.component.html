@@ -1,7 +1,7 @@
-<div *ngFor='let group of optionGroups'
+<div *ngFor='let group of filterService.optionGroups'
   class="filter"
 >
-<div class="filter_group">{{group.name}}</div>
+<div class="filter_group">{{group.colName}}</div>
   <div *ngFor='let option of group.options' 
     class="filter_group"
   ><span class="param">{{option.value}} : {{option.count}}</span></div>

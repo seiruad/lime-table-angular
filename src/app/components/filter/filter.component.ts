@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
   selector: 'app-filter',
@@ -6,10 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  @Input() optionGroups?: any = []
-  constructor() { }
+  constructor(public filterService: FilterService) { }
 
   ngOnInit(): void {
+    this.filterService.applyOptionGroups()
   }
+
+ 
 
 }

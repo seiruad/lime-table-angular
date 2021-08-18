@@ -41,7 +41,7 @@ const countUniqueProperties = (objects: any, property: string): any => {
   return toRequestedFormat(result)
 }
 
-export const makeGroups = (table: any[]): any[] => {
+export const generateOptionGroups = (table: any[]): any[] => {
   console.log({table})
   let groups = []
   const request = [{

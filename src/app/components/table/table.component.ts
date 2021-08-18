@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TABLE } from 'src/app/api/mock-api';
-import { makeGroups } from 'src/app/helpers/filterHelpers';
 import { Table } from 'src/app/interfaces/table';
 import { TableService } from 'src/app/services/table.service';
 
@@ -29,32 +27,17 @@ export class TableComponent implements OnInit {
     publicName: 'Отдел'
   }]
 
-  columnSortSettings: any = {name: 'none', age: 'ASC', gender: 'DESC', department: 'none'}
+  
   
 
-  constructor(private tableService: TableService) { }
+  constructor(public tableService: TableService) { }
 
   ngOnInit(): void {
-    this.getTable()
-    this.optionGroups = makeGroups(this.table)
-  }
-
-  getTable(): void {
+    // this.tableService.sort()
     this.tableService.getTable()
-      .subscribe(table => this.table = table)
+    
+    // this.optionGroups = makeGroups(this.table)
   }
 
-  sort(name: string): void {
-    if (this.columnSortSettings[name] === 'none') {
-      //  sort ('ASC')
-      this.columnSortSettings[name] = 'ASC'
-    } else if (this.columnSortSettings[name] === 'DESC') {
-      //  sort ('ASC')
-      this.columnSortSettings[name] = 'ASC'
-    } else {
-      //  sort ('DCS')
-      this.columnSortSettings[name] = 'DESC'
-    }
 
-  }
 }
