@@ -1,0 +1,12 @@
+<h2>Row oriented table</h2>
+<div *ngFor='let row of table'
+  class="Rtable Rtable--4cols">
+
+  <div class="Rtable-cell"><h3>{{row.name}}</h3></div>
+  <div class="Rtable-cell">{{row.age}}</div>
+  <div class="Rtable-cell">{{row.gender}}</div>
+  <div class="Rtable-cell"><strong>{{row.department}}</strong></div>
+  <!-- <div class="Rtable-cell">{{row.address.city}} | {{row.address.street}}</div> -->
+
+
+</div>
