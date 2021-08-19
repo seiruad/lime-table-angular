@@ -1,27 +1,8 @@
 @import "colors";
 
-/* Page styling
-================================== */
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
 
-// $color-error: #c62828;
-// $color-success: #7cb342;
-
-// $color-primary-light: #ffffff;
-// $color-primary: #fff3e0;
-// $color-primary-dark: #ccc0ae;
-// $color-primary-darker: #ffffb0;
-
-// $color-secondary-light: #82e9de;
-// $color-secondary: #4db6ac;
-// $color-secondary-darker: #4f9a94;
-// $color-secondary-dark: #00867d;
-
-// $color-font-primary: #424242;
-// $color-font-secondary: #fffde7;
-
-// $background-page: #000;
-
+// @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+@import 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap';
 
 
 * {
@@ -44,7 +25,6 @@ body {
 h1, h2, h3, h4, h5, h6 { margin-top: 0; }
 h3 { font-size: 1.2em; }
 h4 { font-size: 1em; }
-strong { color: darken(slategrey,20%); }
 
 
 

@@ -1,7 +1,7 @@
 
-<h2 class=title >Таблица</h2>
+<!-- <h2 class=title >Таблица</h2> -->
 <div class="table-wrapper">
-  <div class="Rtable Rtable-header Rtable--4cols"
+  <div class="Rtable Rtable-header Rtable--5cols"
   >
     <div *ngFor='let col of columns' 
       (click)='sort(col.name)'
@@ -9,21 +9,25 @@
 
       <h3 
         class="header-title"
-        [class.non-sort]='colSortOrder[col.name] === 0'
-        [class.sort-asc]='colSortOrder[col.name] === 1'
-        [class.sort-desc]='colSortOrder[col.name] === -1'
+        [class.non-sort]='colSortOrder[col.name] === 0 '
+        [class.sort-asc]='colSortOrder[col.name] === 1 && sortableColumnName === col.name'
+        [class.sort-desc]='colSortOrder[col.name] === -1 && sortableColumnName === col.name'
       >{{col.publicName}}</h3>
     </div>
   </div>
 
 
   <div *ngFor='getTable(); let row of table'
-    class="Rtable Rtable--4cols Rtable--collapse"
+    class="Rtable Rtable--5cols Rtable--collapse"
   >
     <div class="Rtable-cell Rtable-element">{{row.name}}</div>
     <div class="Rtable-cell Rtable-element">{{row.age}}</div>
     <div class="Rtable-cell Rtable-element">{{row.gender}}</div>
     <div class="Rtable-cell Rtable-element"><strong>{{row.department}}</strong></div>
+    <div class="Rtable-cell Rtable-element address">
+      <span class="city">{{row.address.city }}</span>
+      <span class="street">{{row.address.street}}</span>
+    </div>
     <!-- <div class="Rtable-cell">{{row.address.city}} | {{row.address.street}}</div> -->
   </div>
 

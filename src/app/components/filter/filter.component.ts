@@ -17,7 +17,4 @@ export class FilterComponent implements OnInit {
   toggleOption(option: Option, colName: string) {
     this.filterService.filter({colName: colName, value: option.value})
   }
-
- 
-
 }

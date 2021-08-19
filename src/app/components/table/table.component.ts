@@ -25,9 +25,14 @@ export class TableComponent implements OnInit {
   }, {
     name: 'department',
     publicName: 'Отдел'
+  }, {
+    name: 'address',
+    publicName: 'Адрес'
   }]
 
   colSortOrder: any = {name: 0, age: 0, gender: 0, department: 0}
+
+  sortableColumnName: string = ''
   
 
   constructor(public tableControlService: TableControlService) { }
@@ -43,6 +48,7 @@ export class TableComponent implements OnInit {
   }
 
   sort (colName: string) {
+    this.sortableColumnName = colName
     this.colSortOrder[colName] = this.tableControlService.sort(colName, this.colSortOrder)
   }
 

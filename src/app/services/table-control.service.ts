@@ -28,24 +28,17 @@ export class TableControlService {
   }
   
   filter (element: TableElement) {
-    console.log({in: 'filter()', element})
     this.immutableTable = this.immutableTable.filter((row) => {
-      console.log({row, currElement: row[element.colName], needElement: element.value})
+      if (element.colName === 'city') return row.address.city === element.value
       return row[element.colName] === element.value
     })
-
-    // const result = this.immutableTable.filter((row) => {
-    //   row[element.colName] === element.value
-    // })
-
-    // console.log({result})
   } 
 
   
   sort(colName: string, colSortOrder: any): number {
     let order: number = colSortOrder[colName]
     if (order === 0) {
-      this.immutableTable = sortTable(this.immutableTable, 'age', 1)
+      this.immutableTable = sortTable(this.immutableTable, colName, 1)
       order = 1
     } else if (order === -1) {
       this.immutableTable = sortTable(this.immutableTable, colName, 1)

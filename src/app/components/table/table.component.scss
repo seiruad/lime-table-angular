@@ -5,6 +5,7 @@
 /* Variables
 ================================== */
 $border-width: 3px;  // border width
+$breakpoint: 900px;
 
 
 /* Container - Wrapper
@@ -12,12 +13,8 @@ $border-width: 3px;  // border width
 .table-wrapper {
   margin: 0;
   width: 100%;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // flex-direction: column;
   box-shadow: 0 0 15px rgba($color: #000000, $alpha: .2);
-  // border: solid 6px $color-secondary;
+  margin-top: 20px;
 }
 
 .title {
@@ -34,10 +31,11 @@ $border-width: 3px;  // border width
   // flex-direction: column;
   margin: 0 0 .2em 0;
   padding: 0;
+  
   // box-shadow: 0 0 15px rgba($color: #000000, $alpha: .2);
 }
 .Rtable-cell {
-  
+  border-bottom: 1px solid $color-primary-dark;
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;  // Default to full width
@@ -45,14 +43,28 @@ $border-width: 3px;  // border width
   overflow: hidden; // Or flex might break
   list-style: none;
   // border: solid $border-width white;
-  background: fade(slategrey,20%);
+  // background:slategrey;
   > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+
+  &.address {
+    * {
+      margin-right: 10px;
+    }
+    .city {
+      display: block;
+      
+    }
+    .street {
+      font-size: 0.8em;
+    }
+  }
 }
 
 .Rtable-header {
   background: $color-secondary;
   color: $color-font-secondary;
   text-align: center;
+  font-weight: 700;
   .header-title.sort-asc::after {
     content: '\25b4';
   }
@@ -67,6 +79,7 @@ $border-width: 3px;  // border width
 
   .Rtable-cell {
     font-size: 1.3rem;
+    
     &:hover {
       background: $color-secondary-darker;
       cursor: pointer;
@@ -95,7 +108,7 @@ $border-width: 3px;  // border width
 
 
 
-$breakpoint: 600px;
+
 
 /* Responsive
 ==================================== */
@@ -106,15 +119,41 @@ $breakpoint: 600px;
     > .Rtable-cell--foot { margin-bottom: 1em; }
   }
 
-  .Rtable-header  {
-    display: none;
-  }
-
   .table-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    box-shadow: none;
+    border: none;
+  }
+
+  .Rtable-header  {
+    display: none;
+  }
+
+  .Rtable {
+    
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .Rtable-cell {
+    box-shadow: 0 0 7px rgba($color: #000000, $alpha: .3);
+    $cell-boreder-width: 2px;
+    background: $color-primary-darker;
+    border: $cell-boreder-width solid $color-primary-darker;
+    &.address {display: none;}
+    &:first-child {
+      background-color: $color-secondary;
+      color: $color-font-secondary;
+      border: $cell-boreder-width solid $color-secondary;
+    }
+    &:last-child {
+      background-color: $color-primary-dark;
+      border: $cell-boreder-width solid $color-primary-dark;
+    }
   }
 }
 

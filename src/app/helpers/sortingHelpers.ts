@@ -3,16 +3,16 @@
 export const dynamicSort = (array: any[], property: string, order=1) => {
   console.log({array, property, order})
   const compare = (a:any, b:any)  => {
-    console.log({a, b, property, ELEMENT: a[property]})
-    if ( a[property] < b[property] ) {
+    let pair = [a[property], b[property]]
+    if (property === 'address') pair = [a.address.city, b.address.city]
+    if ( pair[0] < pair[1] ) {
       return -1 * order;
-    } else if ( a[property] > b[property] ){
+    } else if ( pair[0]> pair[1] ){
       return 1 * order;
     }
     return 0;
   }
 
-  console.log({sortedArray: array.sort( compare )})
   return array.sort( compare )
 }
 

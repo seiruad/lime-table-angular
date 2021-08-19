@@ -1,4 +1,35 @@
-<div *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'
+<div class="filter">
+  <div *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'  class="option-group">
+    <div class="group-title"><span class="title">{{group.colName | titlecase}}</span></div>
+    
+    <span *ngFor='let option of group.options' class='option' (click)='toggleOption(option, group.colName)' >
+      <span class="option-value">{{option.value | lowercase}}</span>
+      <span class="option-count">{{option.count}}</span>
+    </span>
+    
+    <!-- (click)='toggleOption(option, group.colName)' -->
+    
+  </div>
+</div>
+
+
+<!-- <label *ngFor='let option of group.options' for={{option.value}} class='radio' (click)='toggleOption(option, group.colName)' >
+  <input type='radio' name={{option.value}} id={{option.value}} class='radio-input' >
+  <div class="radio-radio"></div>
+  {{option.value}}({{option.count}})
+</label> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'
   class="option-group"
 >
   <div class="option-group">{{group.colName}}</div>
@@ -6,4 +37,18 @@
       class="option"
     ><span (click)='toggleOption(option, group.colName)' class="option-content">{{option.value}} : {{option.count}}</span>
   </span>
-</div>
+</div> -->
+
+
+<!-- 
+
+<select *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'
+  class="select">
+  <option value="" disabled selected class='option'>{{group.colName | titlecase}}</option>
+  <option *ngFor='let option of group.options' (click)='toggleOption(option, group.colName)' class='option' value={{option.value}}>{{option.value}}({{option.count}})</option>
+</select>
+ -->
+
+
+
+
