@@ -10,7 +10,7 @@ export class FetchTableService {
 
   constructor() { }
 
-  getTable(): Observable<Table[]> {
+  getTable(): Observable<any[]> {
     const table = of(TABLE) 
     return table
   }

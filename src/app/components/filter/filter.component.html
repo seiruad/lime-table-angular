@@ -1,8 +1,9 @@
-<div *ngFor='let group of filterService.optionGroups'
-  class="filter"
+<div *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'
+  class="option-group"
 >
-<div class="filter_group">{{group.colName}}</div>
-  <div *ngFor='let option of group.options' 
-    class="filter_group"
-  ><span class="param">{{option.value}} : {{option.count}}</span></div>
+  <div class="option-group">{{group.colName}}</div>
+    <span *ngFor='let option of group.options' 
+      class="option"
+    ><span (click)='toggleOption(option, group.colName)' class="option-content">{{option.value}} : {{option.count}}</span>
+  </span>
 </div>

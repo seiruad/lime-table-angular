@@ -1,3 +1,5 @@
+import { Option } from "../interfaces/option";
+import { OptionGroups } from "../interfaces/optionGroup";
 
 const toRequestedFormat = (result: any): any[] => {
   const reqFormat = []
@@ -8,6 +10,7 @@ const toRequestedFormat = (result: any): any[] => {
     })
     // console.log({FORMAT: `${key}: ${value}`});
   }
+
 
   console.log({FORMAT: reqFormat});
 
@@ -45,22 +48,23 @@ export const generateOptionGroups = (table: any[]): any[] => {
   console.log({table})
   let groups = []
   const request = [{
-    name: 'Пол',
-    property: 'gender'
+    publicName: 'Пол',
+    colName: 'gender'
   }, {
-    name: 'Департамент',
-    property: 'department'
+    publicName: 'Департамент',
+    colName: 'department'
   }, {
-    name: 'Город',
-    property: 'city'
+    publicName: 'Город',
+    colName: 'city'
   }]
 
   for (const req of request) {
-    const options = countUniqueProperties(table, req.property)
-    groups.push({
-      name: req.name,
+    const options: Option[] = countUniqueProperties(table, req.colName)
+    const group: OptionGroups = {
+      colName: req.colName,
       options
-    })
+    }
+    groups.push(group)
   }
 
 

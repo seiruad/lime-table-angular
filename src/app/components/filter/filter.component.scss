@@ -1,0 +1,12 @@
+.option-group {
+  margin-bottom: 20px;
+}
+
+.option {
+  padding-right: 15px;
+  .option-content {
+    cursor: pointer;
+    padding: 5px;
+    background: #f1ae56;
+  }
+}

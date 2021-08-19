@@ -1,7 +1,7 @@
 import { Table } from "../interfaces/table";
 
 
-export const TABLE: Table[] = [{
+export const TABLE: any[] = [{
   id: '573f358c9ecd6d19c0198a02',
   name: 'Lilly',
   age: 25,
