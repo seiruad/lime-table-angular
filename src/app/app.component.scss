@@ -1,0 +1,13 @@
+@import 'colors';
+
+.app {
+  min-height: 100%;
+  margin: 0 auto;
+  // padding: .4em;
+  max-width: 1200px;
+  font-size: 1.2em;
+  background: $color-primary;
+  // border: solid 1px $color-secondary;
+  border-top: none; border-bottom: none;
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: .2);
+}

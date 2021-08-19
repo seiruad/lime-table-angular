@@ -1,26 +1,53 @@
-
+@import "colors";
 
 /* Page styling
 ================================== */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+
+// $color-error: #c62828;
+// $color-success: #7cb342;
+
+// $color-primary-light: #ffffff;
+// $color-primary: #fff3e0;
+// $color-primary-dark: #ccc0ae;
+// $color-primary-darker: #ffffb0;
+
+// $color-secondary-light: #82e9de;
+// $color-secondary: #4db6ac;
+// $color-secondary-darker: #4f9a94;
+// $color-secondary-dark: #00867d;
+
+// $color-font-primary: #424242;
+// $color-font-secondary: #fffde7;
+
+// $background-page: #000;
+
+
+
+* {
+  box-sizing: border-box;
+  // color: $color-font-primary;
+}
+
 html { 
   height: 100%;
-  background-color: #EEE; 
+  background-color: $background-page; 
 }
 body {
   overflow-y: scroll;
-  box-sizing: border-box;
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 2em;
-  max-width: 800px;
-  font-family: 'Josefin Sans', sans-serif;
+  // font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-size: 1.2em;
-  background-color: white;
-  border: double 3px #DDD;
-  border-top: none; border-bottom: none;
 }
 h1, h2, h3, h4, h5, h6 { margin-top: 0; }
 h3 { font-size: 1.2em; }
 h4 { font-size: 1em; }
 strong { color: darken(slategrey,20%); }
+
+
+
+
+
+

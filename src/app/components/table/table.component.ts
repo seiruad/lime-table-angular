@@ -27,12 +27,13 @@ export class TableComponent implements OnInit {
     publicName: 'Отдел'
   }]
 
-  colSortOrder: any = {name: 0, age: 1, gender: -1, department: 0}
+  colSortOrder: any = {name: 0, age: 0, gender: 0, department: 0}
   
 
   constructor(public tableControlService: TableControlService) { }
 
   ngOnInit(): void {
+    this.tableControlService.fetchTable()
     this.getTable()
   }
 

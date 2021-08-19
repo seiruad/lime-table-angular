@@ -1,7 +1,30 @@
+@import "colors";
+
+
+
 /* Variables
 ================================== */
 $border-width: 3px;  // border width
 
+
+/* Container - Wrapper
+================================== */
+.table-wrapper {
+  margin: 0;
+  width: 100%;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: .2);
+  // border: solid 6px $color-secondary;
+}
+
+.title {
+  padding: 8px;
+  text-align: center;
+  color: $color-font-primary;
+}
 
 /* Tables
 ================================== */
@@ -9,19 +32,57 @@ $border-width: 3px;  // border width
   display: flex;
   flex-wrap: wrap;
   // flex-direction: column;
-  margin: 0 0 3em 0;
+  margin: 0 0 .2em 0;
   padding: 0;
+  // box-shadow: 0 0 15px rgba($color: #000000, $alpha: .2);
 }
 .Rtable-cell {
+  
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;  // Default to full width
-  padding: 0.8em 1.2em;
+  padding: 0.7em 1em;
   overflow: hidden; // Or flex might break
   list-style: none;
-  border: solid $border-width white;
+  // border: solid $border-width white;
   background: fade(slategrey,20%);
   > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+
+.Rtable-header {
+  background: $color-secondary;
+  color: $color-font-secondary;
+  text-align: center;
+  .header-title.sort-asc::after {
+    content: '\25b4';
+  }
+
+  .header-title.sort-desc::after {
+    content: '\25be';
+  }
+
+  .header-title.non-sort::after {
+    // content: '\25be';
+  }
+
+  .Rtable-cell {
+    font-size: 1.3rem;
+    &:hover {
+      background: $color-secondary-darker;
+      cursor: pointer;
+    }
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+  }
+}
+
+.Rtable-element {
+  color: $color-font-primary;
 }
 
 /* Table column sizing
@@ -31,6 +92,46 @@ $border-width: 3px;  // border width
 .Rtable--4cols > .Rtable-cell  { width: 25%; }
 .Rtable--5cols > .Rtable-cell  { width: 20%; }
 .Rtable--6cols > .Rtable-cell  { width: 16.6%; }
+
+
+
+$breakpoint: 600px;
+
+/* Responsive
+==================================== */
+@media all and (max-width: $breakpoint) {
+  .Rtable--collapse  {
+    display: block;
+    > .Rtable-cell { width: 100% !important; }
+    > .Rtable-cell--foot { margin-bottom: 1em; }
+  }
+
+  .Rtable-header  {
+    display: none;
+  }
+
+  .table-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+// @media screen and (max-width: 900px) {
+//   .Rtable--collapse  {
+//     display: block;
+//     > .Rtable-cell { width: 100% !important; }
+//     > .Rtable-cell--foot { margin-bottom: 1em; }
+//   }
+// }
+
+// Non-Flex modernizer fallback
+.no-flexbox .Rtable {
+  display: block;
+  > .Rtable-cell { width: 100%; }
+  > .Rtable-cell--foot { margin-bottom: 1em; }
+}
 
 
 

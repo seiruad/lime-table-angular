@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { TABLE } from '../api/mock-api';
 import { sortTable } from '../helpers/sortingHelpers';
 import { TableElement } from '../interfaces/tableElement';
+import { FetchTableService } from './fetch-table.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,14 @@ export class TableControlService {
   immutableTable: any[] = []
   table: any[] = []
   
-  constructor() { 
-    this.immutableTable = TABLE
-    this.table = TABLE
+  constructor(private fetchService: FetchTableService) { 
+    // this.immutableTable = TABLE
+    // this.table = TABLE
+  }
+
+  fetchTable(): void {
+    this.fetchService.fetchTable()
+      .subscribe(table => this.immutableTable = table)
   }
 
   getTable (): Observable<any[]> {
