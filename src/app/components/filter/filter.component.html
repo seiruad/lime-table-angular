@@ -1,4 +1,5 @@
 <div class="filter">
+  <!-- <div class="option-group">Это таблица с фильтрами</div> -->
   <div *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'  class="option-group">
     <div class="group-title"><span class="title">{{group.colName | titlecase}}</span></div>
     
@@ -6,10 +7,28 @@
       <span class="option-value">{{option.value | lowercase}}</span>
       <span class="option-count">{{option.count}}</span>
     </span>
-    
+
     <!-- (click)='toggleOption(option, group.colName)' -->
     
   </div>
+
+  <div class="option-group"><div class="line"></div></div>
+  <div class="option-group">
+    <button  
+      (click)='reset()'
+      class="button reset"
+    >Сбросить фильтры</button>
+    <button  
+      (click)='sort("name")'
+      class="button sort"
+    >Сортировать по имени</button>
+    <button  
+    (click)='sort("age")'
+    class="button sort"
+  >Сортировать по возросту</button>
+  </div>
+
+  
 </div>
 
 
