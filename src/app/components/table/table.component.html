@@ -10,8 +10,8 @@
       <h3 
         class="header-title"
         [class.non-sort]='colSortOrder[col.name] === 0 '
-        [class.sort-asc]='colSortOrder[col.name] === 1 && sortableColumnName === col.name'
-        [class.sort-desc]='colSortOrder[col.name] === -1 && sortableColumnName === col.name'
+        [class.sort-asc]='colSortOrder[col.name] === 1 && sortingColName === col.name'
+        [class.sort-desc]='colSortOrder[col.name] === -1 && sortingColName === col.name'
       >{{col.publicName}}</h3>
     </div>
   </div>
@@ -31,7 +31,7 @@
     <!-- <div class="Rtable-cell">{{row.address.city}} | {{row.address.street}}</div> -->
   </div>
 
-  <div *ngIf="table.length === 0">Таблица не загружена - проблемы с сервером или с клентом ^_^</div>
+  <div *ngIf="table.length === 0">Таблица не загружена - может быть просто долго грузиться, а может это проблема с сервером или с клентом ^_^</div>
 
 
 </div>

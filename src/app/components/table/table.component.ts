@@ -10,7 +10,6 @@ import { TableService } from 'src/app/services/table.service';
 })
 export class TableComponent implements OnInit {
   table: any[] = []
-  // optionGroups: any = []
 
 
   columns: any = [{
@@ -32,7 +31,7 @@ export class TableComponent implements OnInit {
 
   colSortOrder: any = {name: 0, age: 0, gender: 0, department: 0}
 
-  sortableColumnName: string = ''
+  sortingColName: string = ''
   
 
   constructor(public tableControlService: TableControlService) { }
@@ -48,9 +47,7 @@ export class TableComponent implements OnInit {
   }
 
   sort (colName: string) {
-    this.sortableColumnName = colName
+    this.sortingColName = colName
     this.colSortOrder[colName] = this.tableControlService.sort(colName, this.colSortOrder)
   }
-
-
 }
