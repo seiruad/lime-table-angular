@@ -1,6 +1,6 @@
 # About :wave:
 
-You can play with the app [here](https://lime-table-1e5dbd.netlify.app/) <br />
+You can play with the app [here](https://lime-table-df25e8.netlify.app/) <br />
 
 this project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
 
