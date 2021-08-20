@@ -42,8 +42,6 @@ $breakpoint: 900px;
   padding: 0.7em 1em;
   overflow: hidden; // Or flex might break
   list-style: none;
-  // border: solid $border-width white;
-  // background:slategrey;
   > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
 
   &.address {
@@ -65,25 +63,24 @@ $breakpoint: 900px;
   color: $color-font-secondary;
   text-align: center;
   font-weight: 700;
+
   .header-title.sort-asc::after {
     content: '\25b4';
   }
-  
   .header-title.sort-desc::after {
     content: '\25be';
   }
-
   .header-title.non-sort::after {
     content: '';
   }
 
   .Rtable-cell {
     font-size: 1.3rem;
-    
     &:hover {
       background: $color-secondary-darker;
       cursor: pointer;
     }
+
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
@@ -107,9 +104,6 @@ $breakpoint: 900px;
 .Rtable--6cols > .Rtable-cell  { width: 16.6%; }
 
 
-
-
-
 /* Responsive
 ==================================== */
 @media all and (max-width: $breakpoint) {
@@ -126,6 +120,7 @@ $breakpoint: 900px;
     flex-direction: column;
     box-shadow: none;
     border: none;
+    margin-top: 18px;
   }
 
   .Rtable-header  {
@@ -133,7 +128,6 @@ $breakpoint: 900px;
   }
 
   .Rtable {
-    
     margin-top: 20px;
     width: 100%;
     padding: 0 8px;
@@ -156,21 +150,3 @@ $breakpoint: 900px;
     }
   }
 }
-
-// @media screen and (max-width: 900px) {
-//   .Rtable--collapse  {
-//     display: block;
-//     > .Rtable-cell { width: 100% !important; }
-//     > .Rtable-cell--foot { margin-bottom: 1em; }
-//   }
-// }
-
-// Non-Flex modernizer fallback
-.no-flexbox .Rtable {
-  display: block;
-  > .Rtable-cell { width: 100%; }
-  > .Rtable-cell--foot { margin-bottom: 1em; }
-}
-
-
-

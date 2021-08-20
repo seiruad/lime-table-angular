@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lime-table-angular-client';
+  currentSection: string = 'filter'
+
+  onClickFilter () {
+    this.currentSection = 'filter'
+  }
+
+  onClickTable () {
+    this.currentSection = 'table'
+  }
 }

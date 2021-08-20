@@ -1,5 +1,8 @@
 @import 'colors';
 
+
+/* App styles
+================================== */
 .app {
   min-height: 100%;
   padding: 20px 0;
@@ -15,5 +18,49 @@
 @media all and (max-width: 900px) {
   .app{
     padding: 0;
+  }
+}
+
+
+
+/* Navigation styles
+================================== */
+.nav {
+  display: none;
+}
+
+@media all and (max-width: 900px) {
+  .section{ 
+    display: none;
+    &.active {
+      display: contents;
+    }
+  }
+
+  .nav {
+    display: block;
+    background: $color-primary-dark;
+    // border-bottom: 4px solid $color-primary-dark;
+    margin: 0;
+    padding: 0;
+    .nav-item {
+      background: $color-primary-dark;
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      height: 100%;
+      border-bottom: 4px solid $color-secondary-darker;
+      .item-link {
+        display: block;
+        height: 100%;
+        padding: .6em;
+        font-size: .9em;
+        font-weight: 700;
+      }
+      &.selected {
+        border-bottom: 4px solid $color-secondary-dark;
+        background: $color-primary-darkest;
+      }
+    }
   }
 }

@@ -7,7 +7,7 @@ export const dynamicSort = (array: any[], property: string, order=1) => {
     if (property === 'address') pair = [a.address.city, b.address.city]
     if ( pair[0] < pair[1] ) {
       return -1 * order;
-    } else if ( pair[0]> pair[1] ){
+    } else if ( pair[0] > pair[1] ){
       return 1 * order;
     }
     return 0;
