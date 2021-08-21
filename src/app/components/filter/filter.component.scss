@@ -10,8 +10,9 @@
 }
 
 .option-group {
-  padding: 5px 24px 30px 24px;
+  padding: 5px 24px 5px 24px;
   &.control {
+    padding: 5px 24px 30px 24px;
     box-shadow: none;
     border: none;
     margin-left: 0.5em;
@@ -40,9 +41,14 @@
   margin: .35em .5em;
   padding: .2em;
   // -webkit-tap-highlight-color: transparent;
-
+  .option-checkbox {
+    border-radius: $border-radius;
+    padding: .02em .6em;
+    background: $color-primary-darker;
+    margin-right: 20px;
+  }
   .option-count {
-    background: $color-font-secondary;
+    background: $color-primary-darker;
     color: $color-secondary-darker;
     border-radius: $border-radius;
     font-weight: bold;
@@ -81,15 +87,15 @@ $breakpoint: 900px;
   .filter {
     width: 100%;
     padding: 0;
+    padding-top: ($nav-height + 20px);
     box-shadow: none;
     color: $color-primary;
     min-height: 100vh;
-    
   }
 
   .option-group {
     margin-bottom: 12px;
-    padding-top: 30px;
+    padding-top: 0;
     &.control {
       margin: 0;
     }

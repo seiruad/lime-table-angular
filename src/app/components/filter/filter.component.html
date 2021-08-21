@@ -28,6 +28,7 @@
     <div class="group-title"><span class="title">{{group.colName | titlecase}}</span></div>
     
     <span *ngFor='let option of group.options' class='option' (click)='toggleOption(option, group.colName)' >
+      <!-- <span class="option-checkbox"></span> -->
       <span class="option-value">{{option.value | lowercase}}</span>
       <span class="option-count">{{option.count}}</span>
     </span>

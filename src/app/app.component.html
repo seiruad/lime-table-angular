@@ -1,4 +1,4 @@
-<div class="app app-mobile">
+<div class="app">
   <div class="nav">
     <span 
       (click)='onClickFilter()'
@@ -18,15 +18,7 @@
   <div  class='section' [class.active]='currentSection === "table"'>
     <app-table ></app-table>
   </div>
-
-
 </div>
-
-
-<div class="app-desktop">
-
-</div>
-
 
 
 <router-outlet></router-outlet>
