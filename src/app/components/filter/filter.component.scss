@@ -1,6 +1,16 @@
 @import 'colors';
 @import 'variables';
 
+.filter * {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
 .filter {
   padding: 18px 24px;
   background: $color-primary;
@@ -31,9 +41,13 @@
   }
 }
 
+
+/* Option container */
 .option {
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: $color-secondary;
   color: $color-font-secondary;
   border-radius: $border-radius;
@@ -47,6 +61,7 @@
     background: $color-primary-darker;
     margin-right: 20px;
   }
+
   .option-count {
     background: $color-primary-darker;
     color: $color-secondary-darker;
@@ -54,8 +69,53 @@
     font-weight: bold;
     margin-left: 5px;
     padding: .05em .15em;
+
+    // color: #666;
   }
 }
+
+
+
+/* Option checkbox */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  .checkbox-input {
+    cursor: pointer;
+    display: none;
+  }
+
+  .checkbox-box {
+    $checkbox-size: .98rem;
+    margin: auto;
+    margin-right: .3rem;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    padding: 0 .45em;
+    background: $color-primary-darker;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::after {
+      content: '\2714';
+      visibility: hidden;
+      font-size: .95rem;
+      color: $color-secondary-darker;
+      font-weight: 700;
+    }
+  }
+}
+
+.option.selected  {
+  .checkbox .checkbox-box {
+    &::after {
+      visibility: visible;
+    }
+  }
+}
+
 
 
 .button {
@@ -87,10 +147,10 @@ $breakpoint: 900px;
   .filter {
     width: 100%;
     padding: 0;
-    padding-top: ($nav-height + 20px);
+    padding-top: ($nav-height);
     box-shadow: none;
     color: $color-primary;
-    min-height: 100vh;
+    // min-height: 100vh;
   }
 
   .option-group {
@@ -98,6 +158,9 @@ $breakpoint: 900px;
     padding-top: 0;
     &.control {
       margin: 0;
+    }
+    &.address {
+      display: none;
     }
   }
 

@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Table } from 'src/app/interfaces/table';
-import { TableControlService } from 'src/app/services/table-control.service';
-import { TableService } from 'src/app/services/table.service';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Employee } from 'src/app/interfaces/Employee';
 
 @Component({
   selector: 'app-table',
@@ -9,45 +7,19 @@ import { TableService } from 'src/app/services/table.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  table: any[] = []
+  @Input() table?: Employee[]
+  @Input() sortedColumn: any
 
-
-  columns: any = [{
-    name: 'name',
-    publicName: 'Имя'
-  }, {
-    name: 'age',
-    publicName: 'Возраст'
-  }, {
-    name: 'gender',
-    publicName: 'Пол'
-  }, {
-    name: 'department',
-    publicName: 'Отдел'
-  }, {
-    name: 'address',
-    publicName: 'Адрес'
-  }]
-
-  colSortOrder: any = {name: 0, age: 0, gender: 0, department: 0}
-
-  sortingColName: string = ''
+  @Output() sortEvent = new EventEmitter<string>()
   
 
-  constructor(public tableControlService: TableControlService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.tableControlService.fetchTable()
-    this.getTable()
   }
 
-  getTable(): void {
-    this.tableControlService.getTable()
-      .subscribe(table => this.table = table)
-  }
 
-  sort (colName: string) {
-    this.sortingColName = colName
-    this.colSortOrder[colName] = this.tableControlService.sort(colName, this.colSortOrder)
+  handleSortEvent(colName: string) {
+     this.sortEvent.emit(colName)
   }
 }

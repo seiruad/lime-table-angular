@@ -1,23 +1,25 @@
 
-<!-- <h2 class=title >Таблица</h2> -->
 <div class="table-wrapper">
   <div class="Rtable Rtable-header Rtable--5cols"
   >
-    <div *ngFor='let col of columns' 
-      (click)='sort(col.name)'
-      class="Rtable-cell">
+    <div *ngFor='let colName of ["name", "age", "gender", "department", "city"]' 
+      class="Rtable-cell"
+      (click)='handleSortEvent(colName)'
+      [class.active]='sortedColumn.colName === colName'>
+      <h3 class="header-title"
+        [class.sort-asc]='sortedColumn.colName === colName && sortedColumn.order === 1'
+        [class.sort-desc]='sortedColumn.colName === colName && sortedColumn.order === -1'
+         >
+        {{colName | titlecase }}
+      </h3>
 
-      <h3 
-        class="header-title"
-        [class.non-sort]='colSortOrder[col.name] === 0 '
-        [class.sort-asc]='colSortOrder[col.name] === 1 && sortingColName === col.name'
-        [class.sort-desc]='colSortOrder[col.name] === -1 && sortingColName === col.name'
-      >{{col.publicName}}</h3>
     </div>
   </div>
 
 
-  <div *ngFor='getTable(); let row of table'
+
+  <div 
+    *ngFor='let row of table'
     class="Rtable Rtable--5cols Rtable--collapse"
   >
     <div class="Rtable-cell Rtable-element">{{row.name}}</div>
@@ -25,13 +27,11 @@
     <div class="Rtable-cell Rtable-element">{{row.gender}}</div>
     <div class="Rtable-cell Rtable-element"><strong>{{row.department}}</strong></div>
     <div class="Rtable-cell Rtable-element address">
-      <span class="city">{{row.address.city }}</span>
-      <span class="street">{{row.address.street}}</span>
+      <span class="city">{{row.city }}</span>
+      <span class="street">{{row.street}}</span>
     </div>
-    <!-- <div class="Rtable-cell">{{row.address.city}} | {{row.address.street}}</div> -->
   </div>
 
-  <div *ngIf="table.length === 0">Таблица не загружена - может быть просто долго грузиться, а может это проблема с сервером или с клентом ^_^</div>
-
+  <div *ngIf='!table || table.length === 0' >Something is wrong</div>
 
 </div>

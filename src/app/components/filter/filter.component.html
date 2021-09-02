@@ -1,37 +1,29 @@
 <div class="filter">
-  <!-- <div class="option-group">Это таблица с фильтрами</div> -->
-
-  <div class="option-group control">
-    <button  
-      (click)='sort("name")'
-      class="button sort"
-    >Сортировать по имени</button>
-    <button  
-    (click)='sort("age")'
-    class="button sort"
-  >Сортировать по возрасту</button>
-  <button  
-    (click)='sort("department")'
-    class="button sort"
-  >Сортировать по отделу</button>
-  </div>
   
-  <div class="option-group control">
-    <button  
-      (click)='reset()'
-      class="button reset"
-    >Сбросить фильтры</button>
+  <div 
+    *ngFor='let group of optionGroups'
+    class="option-group"
+    [class.address] = 'group.colName === "city"'
+  ><div class="group-title">
+    <span class="title">{{group.colName | titlecase}}</span>
   </div>
 
 
-  <div *ngFor='filterService.setOptionGroups(); let group of filterService.optionGroups'  class="option-group">
-    <div class="group-title"><span class="title">{{group.colName | titlecase}}</span></div>
-    
-    <span *ngFor='let option of group.options' class='option' (click)='toggleOption(option, group.colName)' >
-      <!-- <span class="option-checkbox"></span> -->
-      <span class="option-value">{{option.value | lowercase}}</span>
-      <span class="option-count">{{option.count}}</span>
+    <span *ngFor='let option of group.options' >
+      <span
+        class='option'
+        *ngIf='option.count > 0'
+        (click)='handleOptionSelect(group.colName, option.value)'
+        [class.selected] = 'option.isSelected'
+          
+      >
+        <label class='checkbox'  for={{option.value}}>
+          <input class="checkbox-input" type="checkbox" name={{option.value}}  id={{option.value}}>
+          <div class="checkbox-box"></div>
+        </label>
+        <span class="option-value">{{option.value | lowercase}}</span>
+        <span class="option-count">{{option.count}}</span>
+      </span>
     </span>
   </div>
-
 </div>

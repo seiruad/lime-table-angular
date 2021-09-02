@@ -1,6 +1,6 @@
-import { Option } from "./option";
+import { Option } from "./Option";
 
-export interface OptionGroups {
+export interface OptionGroup {
   colName: string,
   options: Option[]
 }

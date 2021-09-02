@@ -1,0 +1,16 @@
+@import 'colors';
+@import 'variables';
+
+.Control-table {
+  margin: 0 auto;
+  padding: 20px 0 40px;
+  max-width: 1200px;
+  background: $color-primary;
+}
+
+
+@media all and (max-width: $breakpoint) {
+  .Control-table {
+    padding: 0;
+  }
+}

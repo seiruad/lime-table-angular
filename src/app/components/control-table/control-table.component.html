@@ -1,0 +1,4 @@
+<div class="Control-table">
+  <app-filter (selectEvent)='receiveSelected($event)' [optionGroups]='optionGroups'  ></app-filter>
+  <app-table (sortEvent)='sort($event)' [table]='table' [sortedColumn]='sortedColumn' ></app-table>
+</div>

@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Option } from 'src/app/interfaces/option';
-import { FilterService } from 'src/app/services/filter.service';
-import { TableControlService } from 'src/app/services/table-control.service';
+import { Component, EventEmitter, Input, KeyValueDiffers, OnInit, Output } from '@angular/core';
+import { OptionGroup } from 'src/app/interfaces/OptionGroup'
 
 @Component({
   selector: 'app-filter',
@@ -9,21 +7,18 @@ import { TableControlService } from 'src/app/services/table-control.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  constructor(public filterService: FilterService, private tableControlServise: TableControlService) { }
+  @Input() optionGroups?: OptionGroup[];
+
+  @Output() selectEvent = new EventEmitter<string>()
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.filterService.setOptionGroups()
   }
 
-  toggleOption(option: Option, colName: string) {
-    this.filterService.filter({colName: colName, value: option.value})
+  handleOptionSelect (colName: string, value: string) {
+    this.selectEvent.emit(colName + ',' + value)
   }
 
-  reset() {
-    this.tableControlServise.resetTable()
-  }
-
-  sort (colName: string) {
-    this.tableControlServise.sort(colName, {[colName]: -1})
-  }
+  
 }

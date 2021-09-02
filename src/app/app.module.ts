@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { ControlTableComponent } from './components/control-table/control-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    FilterComponent
+    FilterComponent,
+    ControlTableComponent
   ],
   imports: [
     BrowserModule,
