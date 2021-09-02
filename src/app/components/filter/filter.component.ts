@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, KeyValueDiffers, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OptionGroup } from 'src/app/interfaces/OptionGroup'
 
 @Component({

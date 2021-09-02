@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/interfaces/Employee';
 import { OptionGroup } from 'src/app/interfaces/OptionGroup';
-import { OptionPayload } from 'src/app/interfaces/OptionPayload';
 import { OptionRecord } from 'src/app/interfaces/OptionRecord';
 import { FilterFormattingService } from 'src/app/services/filter-formatting.service';
 import { FilterService } from 'src/app/services/filter.service';
